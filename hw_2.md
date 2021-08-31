@@ -3,7 +3,7 @@
 
 I wanted to investigate the popularity of the name “David” over time.
 
-**Library installation packages**
+**Library installation packages (for class purposes)**
 
 ``` r
 install.packages("tidyverse",repos = "http://cran.us.r-project.org")
@@ -15,7 +15,7 @@ install.packages("tidyverse",repos = "http://cran.us.r-project.org")
     ## package 'tidyverse' successfully unpacked and MD5 sums checked
     ## 
     ## The downloaded binary packages are in
-    ##  C:\Users\dploh\AppData\Local\Temp\RtmpwHes0h\downloaded_packages
+    ##  C:\Users\dploh\AppData\Local\Temp\RtmpiCDDyb\downloaded_packages
 
 ``` r
 library(tidyverse)
@@ -42,7 +42,7 @@ install.packages("babynames",repos = "http://cran.us.r-project.org")
     ## package 'babynames' successfully unpacked and MD5 sums checked
     ## 
     ## The downloaded binary packages are in
-    ##  C:\Users\dploh\AppData\Local\Temp\RtmpwHes0h\downloaded_packages
+    ##  C:\Users\dploh\AppData\Local\Temp\RtmpiCDDyb\downloaded_packages
 
 ``` r
 library("babynames")

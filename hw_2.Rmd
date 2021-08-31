@@ -4,7 +4,7 @@ output: github_document
 ---
 I wanted to investigate the popularity of the name "David" over time. 
 
-**Library installation packages**
+**Library installation packages (for class purposes)**
 ```{r}
 install.packages("tidyverse",repos = "http://cran.us.r-project.org")
 library(tidyverse)

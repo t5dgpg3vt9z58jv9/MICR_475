@@ -1,0 +1,28 @@
+---
+title: "**Homework 2**"
+output: github_document
+---
+I wanted to investigate the popularity of the name "David" over time. 
+
+**Library installation packages**
+```{r}
+install.packages("tidyverse",repos = "http://cran.us.r-project.org")
+library(tidyverse)
+install.packages("babynames",repos = "http://cran.us.r-project.org")
+library("babynames")
+library(dplyr)
+```
+
+**Plot**
+```{r}
+my_data<- filter(babynames, name=="David",sex=="M")
+   ggplot(data=my_data,aes(x = year, y = n)) +
+   geom_line() + 
+   labs(
+        title = "Number of babies born as a male with the name David by Year", 
+        x = "Year", 
+        y = "Count")
+```
+
+**Conclusion**
+I wanted to investigate the popularity of the name "David" over time. The name "David" appeared to peak in the late 1950's and early 1960's. It has declined into the 2000's. 

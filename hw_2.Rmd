@@ -11,11 +11,17 @@ library(tidyverse)
 install.packages("babynames",repos = "http://cran.us.r-project.org")
 library("babynames")
 library(dplyr)
+library(ggplot2)
+```
+
+**Review data**
+```{r}
+my_data<- filter(babynames, name=="David",sex=="M")
+head(my_data)
 ```
 
 **Plot**
 ```{r}
-my_data<- filter(babynames, name=="David",sex=="M")
    ggplot(data=my_data,aes(x = year, y = n)) +
    geom_line() + 
    labs(

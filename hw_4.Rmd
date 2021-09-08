@@ -1,0 +1,50 @@
+---
+title: "Homework 4, Plot Assignment (David)"
+output: github_document
+#########
+# Script for Homework 4, Plot assignment, David
+#########
+---
+##### Loading Libraries
+```{r, message=FALSE}
+# Loading libraries for the script, hide output
+library(tidyverse)
+```
+
+##### Calculate the sum of 2 and 3 as follows:
+```{r}
+# Assign variables
+a <- 3
+b <- 2
+#Calculate sum
+a+b
+#Calculate sum of 2 and 3 using sum function
+sum(2,3)
+#Calculate sum of a and b using sum function
+sum(a,b)
+```
+
+##### Using the flights data frame, make a scatterplot of arrival delay versus departure delay, for only American Airlines flights
+```{r, message=FALSE}
+# Loading libraries for the script, hide output
+library(nycflights13)
+```
+```{r}
+#Filter flights table for American Airlines
+aal_flights <- filter(flights,carrier=="AA")
+head(aal_flights)
+```
+
+##### This is the scatter plot showing the arrival delay versus departure delay for American Airlines
+```{r}
+ggplot(data = aal_flights) +
+  geom_point(mapping = aes(x = dep_delay, y = arr_delay)) +
+  labs(title = "Arrival delay versus Departure delay (AAL)", x = "Departure Delay", y = "Arrival Delay")
+```
+
+
+
+
+
+
+

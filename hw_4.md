@@ -60,7 +60,10 @@ head(aal_flights)
     ## #   tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
     ## #   hour <dbl>, minute <dbl>, time_hour <dttm>
 
+##### This is the scatter plot showing the arrival delay versus departure delay for American Airlines
+
 ``` r
+#Scatterplot for AAL
 ggplot(data = aal_flights) +
   geom_point(mapping = aes(x = dep_delay, y = arr_delay)) +
   labs(title = "Arrival delay versus Departure delay (AAL)", x = "Departure Delay", y = "Arrival Delay")

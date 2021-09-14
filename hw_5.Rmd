@@ -1,0 +1,94 @@
+---
+title: "Homework 5, Diamonds Assignment (David)"
+output: github_document
+#########
+# Script for Homework 5, Diamonds assignment, David
+#########
+---
+##### Loading Libraries
+```{r, message=FALSE}
+# Loading libraries for the script, hide output
+library(tidyverse)
+```
+
+##### 1) Print a data frame that contains the simple count of diamonds in each cut
+```{r}
+#Group the dataset and then count each cut
+diamonds %>%
+  group_by(cut) %>%
+  count()
+```
+
+##### 2) Use dplyr functions to create a random subset (1% of total) of the diamonds dataset and check the results
+```{r}
+diamonds_subset <-sample_frac(diamonds,0.01)
+head(diamonds_subset)
+```
+
+##### 3) Calculate the average size of the 100 largest diamonds in each clarity category (using the diamonds subset). 
+##### Determine if there are 100 of each clarity category in the diamonds subset dataframe
+```{r}
+diamonds_subset %>%
+  group_by(clarity) %>%
+  count()
+```
+##### Since there are not 100 in each category, we will expand back to the original diamonds dataset
+#### Determine if there are 100 in each clarity category in the original diamonds dataframe
+```{r}
+diamonds %>%
+  group_by(clarity) %>%
+  count()
+```
+##### We now have determined that we have to use the original dataframe to obtain the 100 largest diamonds in each clarity category. 
+```{r}
+#Grab the 100 largest diamonds in each category
+largest_diamonds <- diamonds %>%
+  arrange(desc(carat)) %>%
+  group_by(clarity) %>%
+  slice(1:100)
+largest_diamonds %>%
+  group_by(clarity) %>%
+  count()
+```
+##### Calculate the average size of the largest diamond in each category
+```{r}
+largest_diamonds %>%
+  group_by(clarity) %>%
+  summarise_at(vars(carat),
+               mean)
+```
+
+##### 4) Make two scatter plots, width(x) vs length(y) and width(x) vs depth(z). The naming on the assignment suggests to plot width on the y-axis and length,depth on the x-axis. 
+``` {r}
+ggplot(data = diamonds) +
+  geom_point(mapping = aes(x = y, y = x)) +
+  labs(title = "Diamond dimensions (in mm) width vs length", x = "length (y)", y = "width (x)")
+```
+``` {r}
+ggplot(data = diamonds) +
+  geom_point(mapping = aes(x = z, y = x)) +
+  labs(title = "Diamond dimensions (in mm) width vs depth", x = "depth (z)", y = "width (x)")
+```
+
+##### The plots show that there are a few outliers. We will filter the outliers out of the dataset.We will plot the results
+```{r}
+diamonds_filtered <-
+  diamonds %>%
+  filter(x > 3 & y < 20 & z>2 & z < 10)
+head(diamonds_filtered)
+
+##### Plot the filtered diamond results
+```{r}
+ggplot(data = diamonds_filtered) +
+  geom_point(mapping = aes(x = y, y = x)) +
+  labs(title = "Diamond dimensions (in mm) width vs length (filtered)", x = "length (y)", y = "width (x)")
+```
+``` {r}
+ggplot(data = diamonds_filtered) +
+  geom_point(mapping = aes(x = z, y = x)) +
+  labs(title = "Diamond dimensions (in mm) width vs depth (filtered)", x = "depth (z)", y = "width (x)")
+```
+
+
+
+

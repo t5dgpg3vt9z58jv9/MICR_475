@@ -54,8 +54,7 @@ largest_diamonds %>%
 ```{r}
 largest_diamonds %>%
   group_by(clarity) %>%
-  summarise_at(vars(carat),
-               mean)
+  summarise(mean(carat))
 ```
 
 ##### 4) Make two scatter plots, width(x) vs length(y) and width(x) vs depth(z). The naming on the assignment suggests to plot width on the y-axis and length,depth on the x-axis. 

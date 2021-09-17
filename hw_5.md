@@ -37,12 +37,12 @@ head(diamonds_subset)
     ## # A tibble: 6 x 10
     ##   carat cut       color clarity depth table price     x     y     z
     ##   <dbl> <ord>     <ord> <ord>   <dbl> <dbl> <int> <dbl> <dbl> <dbl>
-    ## 1  2.01 Premium   I     VS1      61.5    62 15475  8.07  7.94  4.92
-    ## 2  1.01 Very Good D     SI2      58.9    56  4260  6.55  6.59  3.87
-    ## 3  0.41 Ideal     F     VS2      61      57   863  4.76  4.81  2.92
-    ## 4  1.11 Ideal     E     VS2      62.1    53  8698  6.67  6.69  4.14
-    ## 5  0.32 Ideal     F     VS2      61.9    57   688  4.36  4.37  2.71
-    ## 6  0.3  Ideal     H     SI1      62.9    57   540  4.29  4.26  2.69
+    ## 1  0.42 Ideal     E     VVS2     61.8    56  1216  4.78  4.8   2.96
+    ## 2  0.7  Very Good F     VS2      62.3    59  2744  5.63  5.7   3.53
+    ## 3  1.01 Ideal     E     VVS2     60      55  9310  6.56  6.6   3.95
+    ## 4  0.39 Very Good F     VS2      63.3    55  1011  4.66  4.63  2.94
+    ## 5  1.05 Premium   H     VS2      61.1    58  5323  6.57  6.53  4   
+    ## 6  0.41 Premium   F     VVS2     60.6    58  1115  4.79  4.84  2.92
 
 ##### 3) Calculate the average size of the 100 largest diamonds in each clarity category (using the diamonds subset).
 
@@ -58,14 +58,14 @@ diamonds_subset %>%
     ## # Groups:   clarity [8]
     ##   clarity     n
     ##   <ord>   <int>
-    ## 1 I1          6
-    ## 2 SI2       112
+    ## 1 I1          9
+    ## 2 SI2        94
     ## 3 SI1       128
     ## 4 VS2       126
-    ## 5 VS1        66
-    ## 6 VVS2       54
-    ## 7 VVS1       28
-    ## 8 IF         19
+    ## 5 VS1        87
+    ## 6 VVS2       51
+    ## 7 VVS1       33
+    ## 8 IF         11
 
 ##### Since there are not 100 in each category, we will expand back to the original diamonds dataset
 
@@ -121,21 +121,20 @@ largest_diamonds %>%
 ``` r
 largest_diamonds %>%
   group_by(clarity) %>%
-  summarise_at(vars(carat),
-               mean)
+  summarise(mean(carat))
 ```
 
     ## # A tibble: 8 x 2
-    ##   clarity carat
-    ##   <ord>   <dbl>
-    ## 1 I1       2.51
-    ## 2 SI2      2.62
-    ## 3 SI1      2.30
-    ## 4 VS2      2.23
-    ## 5 VS1      2.10
-    ## 6 VVS2     1.66
-    ## 7 VVS1     1.51
-    ## 8 IF       1.40
+    ##   clarity `mean(carat)`
+    ##   <ord>           <dbl>
+    ## 1 I1               2.51
+    ## 2 SI2              2.62
+    ## 3 SI1              2.30
+    ## 4 VS2              2.23
+    ## 5 VS1              2.10
+    ## 6 VVS2             1.66
+    ## 7 VVS1             1.51
+    ## 8 IF               1.40
 
 ##### 4) Make two scatter plots, width(x) vs length(y) and width(x) vs depth(z). The naming on the assignment suggests to plot width on the y-axis and length,depth on the x-axis.
 

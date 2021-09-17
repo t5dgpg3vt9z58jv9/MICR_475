@@ -57,16 +57,16 @@ largest_diamonds %>%
   summarise(mean(carat))
 ```
 
-##### 4) Make two scatter plots, width(x) vs length(y) and width(x) vs depth(z). The naming on the assignment suggests to plot width on the y-axis and length,depth on the x-axis. 
+##### 4) Make two scatter plots, length(x) vs width(y) and length(x) vs depth(z). The naming on the assignment suggests to plot length on the y-axis and width,depth on the x-axis. 
 ``` {r}
 ggplot(data = diamonds) +
   geom_point(mapping = aes(x = y, y = x)) +
-  labs(title = "Diamond dimensions (in mm) width vs length", x = "length (y)", y = "width (x)")
+  labs(title = "Diamond dimensions (in mm) length vs width", x = "width (y)", y = "length (x)")
 ```
 ``` {r}
 ggplot(data = diamonds) +
   geom_point(mapping = aes(x = z, y = x)) +
-  labs(title = "Diamond dimensions (in mm) width vs depth", x = "depth (z)", y = "width (x)")
+  labs(title = "Diamond dimensions (in mm) length vs depth", x = "depth (z)", y = "length (x)")
 ```
 
 ##### The plots show that there are a few outliers. We will filter the outliers out of the dataset.We will plot the results
@@ -80,12 +80,12 @@ head(diamonds_filtered)
 ```{r}
 ggplot(data = diamonds_filtered) +
   geom_point(mapping = aes(x = y, y = x)) +
-  labs(title = "Diamond dimensions (in mm) width vs length (filtered)", x = "length (y)", y = "width (x)")
+  labs(title = "Diamond dimensions (in mm) length vs width (filtered)", x = "width (y)", y = "length (x)")
 ```
 ``` {r}
 ggplot(data = diamonds_filtered) +
   geom_point(mapping = aes(x = z, y = x)) +
-  labs(title = "Diamond dimensions (in mm) width vs depth (filtered)", x = "depth (z)", y = "width (x)")
+  labs(title = "Diamond dimensions (in mm) length vs depth (filtered)", x = "depth (z)", y = "length (x)")
 ```
 
 

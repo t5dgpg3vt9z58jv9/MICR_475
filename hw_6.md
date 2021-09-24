@@ -19,6 +19,11 @@ for 2 hours.
 -   The data set is continuous and multiple runs were averaged to create
     the bar chart. The difference of those runs is shown by the error
     bars.
+-   The asterisks (\*) represent p values compared with untreated
+    control.
+    -   (\*) p&lt;0.05
+    -   (\*\*) p&lt;0.01
+    -   (\*\*\*) p&lt;0.001
 -   3 NR4A genes were tested and were mapped to a color
     -   NRA4A1 is mapped to white
     -   NRA4A2 is mapped to grey
@@ -36,6 +41,8 @@ for 2 hours.
 
 ###### Plot Comments
 
+-   This plot shows a lot of data but in a seemingly simple way without
+    cluttering the figure.
 -   The meaning of F.O.C was mentioned in the paper but not directly in
     the figure caption. F.O.C is not a standard abbreviation.
 -   SEM was mentioned in the figure caption and is assumed to mean
@@ -72,6 +79,11 @@ The following figure shows the charge-hydropathy plot of NR A/B region.
         Receptors A/B.
     -   The plot legend shows Nuclear Receptors as a red color but
         contains a lot more than just nuclear receptors.
+-   The colors and shapes do not add value because they overlap.
+    -   Both Ordered and Disordered Proteins are circles. Color is a
+        requirement since the shapes are the same.
+    -   Both Nuclear Receptors and the Average are diamonds. The Average
+        diamond is larger so one can probably pick this out.  
 -   The data used to create the plot is questionable.
     -   The legends describes a family of proteins. However, there are
         multiple items on the plot for each family. Based on previous
@@ -98,6 +110,10 @@ The following figure shows the charge-hydropathy plot of NR A/B region.
 
 -   This plot is complicated to understand. I think it’s hard to try to
     plot families of diverse proteins on a single figure.
+-   This plot could be a victim of design vs data variation as described
+    by Tufte.
+-   Wilke would likely introduce different sizes of shapes and/or colors
+    to improve the existing plot
 -   The plot would be improved by narrowing down the scope of the plot.
     -   Can we look at individual nuclear receptors against a family of
         nuclear receptors?

@@ -1,14 +1,14 @@
-Homework 6 - Good and Bad Plot Assignment
+Homework 6 - Successful and Unsuccessful Plot Assignment
 ================
 
-#### Good Plot Analysis
+#### Successful Plot Analysis
 
 The following figure was taken from a panel of figures. This figure
 shows THP-1 cells that were exposed to varying concentrations of NECA
 for 2 hours.
 
 <figure>
-<img src="hw_6_files/Good%20Plot.jpg" style="width:25.0%" alt="Figure 1 (Good Plot). Undifferentiated THP-1 cells were exposed to varying concentrations of NECA. https://www.jimmunol.org/content/195/4/1436/tab-figures-data" /><figcaption aria-hidden="true">Figure 1 (Good Plot). Undifferentiated THP-1 cells were exposed to varying concentrations of NECA. <a href="https://www.jimmunol.org/content/195/4/1436/tab-figures-data" class="uri">https://www.jimmunol.org/content/195/4/1436/tab-figures-data</a></figcaption>
+<img src="hw_6_files/Successful%20Plot.jpg" style="width:25.0%" alt="Figure 1 (Successful Plot). Undifferentiated THP-1 cells were exposed to varying concentrations of NECA. https://www.jimmunol.org/content/195/4/1436/tab-figures-data" /><figcaption aria-hidden="true">Figure 1 (Successful Plot). Undifferentiated THP-1 cells were exposed to varying concentrations of NECA. <a href="https://www.jimmunol.org/content/195/4/1436/tab-figures-data" class="uri">https://www.jimmunol.org/content/195/4/1436/tab-figures-data</a></figcaption>
 </figure>
 
 ###### Plot Details
@@ -49,12 +49,12 @@ for 2 hours.
     standard error of the mean.
 -   The error bars were very small and did not overlap other data.
 
-#### Bad Plot Analysis
+#### Unsuccessful Plot Analysis
 
 The following figure shows the charge-hydropathy plot of NR A/B region.
 
 <figure>
-<img src="hw_6_files/Bad%20Plot.jpg" style="width:25.0%" alt="Figure 2 (Bad Plot). Charge-hydropathy(CH)plot of NR A/B region https://www.kenzpub.com/journals/nurr/2019/101417/floats/F4" /><figcaption aria-hidden="true">Figure 2 (Bad Plot). Charge-hydropathy(CH)plot of NR A/B region <a href="https://www.kenzpub.com/journals/nurr/2019/101417/floats/F4" class="uri">https://www.kenzpub.com/journals/nurr/2019/101417/floats/F4</a></figcaption>
+<img src="hw_6_files/Unsuccessful%20Plot.jpg" style="width:25.0%" alt="Figure 2 (Unsuccessful Plot). Charge-hydropathy(CH)plot of NR A/B region https://www.kenzpub.com/journals/nurr/2019/101417/floats/F4" /><figcaption aria-hidden="true">Figure 2 (Unsuccessful Plot). Charge-hydropathy(CH)plot of NR A/B region <a href="https://www.kenzpub.com/journals/nurr/2019/101417/floats/F4" class="uri">https://www.kenzpub.com/journals/nurr/2019/101417/floats/F4</a></figcaption>
 </figure>
 
 ###### Plot Details

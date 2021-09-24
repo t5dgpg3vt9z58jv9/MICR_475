@@ -1,11 +1,11 @@
 ---
-title: "Homework 6 - Good and Bad Plot Assignment"
+title: "Homework 6 - Successful and Unsuccessful Plot Assignment"
 output: github_document
 ---
-#### Good Plot Analysis
+#### Successful Plot Analysis
 The following figure was taken from a panel of figures. This figure shows THP-1 cells that were exposed to varying concentrations of NECA for 2 hours. 
 
-![Figure 1 (Good Plot). Undifferentiated THP-1 cells were exposed to varying concentrations of NECA. https://www.jimmunol.org/content/195/4/1436/tab-figures-data](hw_6_files/Good Plot.jpg){width=25%}
+![Figure 1 (Successful Plot). Undifferentiated THP-1 cells were exposed to varying concentrations of NECA. https://www.jimmunol.org/content/195/4/1436/tab-figures-data](hw_6_files/Successful Plot.jpg){width=25%}
 
 ###### Plot Details
 
@@ -34,10 +34,10 @@ The following figure was taken from a panel of figures. This figure shows THP-1 
 * SEM was mentioned in the figure caption and is assumed to mean standard error of the mean. 
 * The error bars were very small and did not overlap other data. 
 
-#### Bad Plot Analysis
+#### Unsuccessful Plot Analysis
 The   following figure shows the charge-hydropathy plot of NR A/B region.  
 
-![Figure 2 (Bad Plot). Charge-hydropathy(CH)plot of NR A/B region https://www.kenzpub.com/journals/nurr/2019/101417/floats/F4](hw_6_files/Bad Plot.jpg){width=25%}
+![Figure 2 (Unsuccessful Plot). Charge-hydropathy(CH)plot of NR A/B region https://www.kenzpub.com/journals/nurr/2019/101417/floats/F4](hw_6_files/Unsuccessful Plot.jpg){width=25%}
 
 ###### Plot Details
 

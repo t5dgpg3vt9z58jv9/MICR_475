@@ -1,0 +1,131 @@
+---
+title: "Homework 8, Nonlinear (David)"
+output: github_document
+#########
+# Script for Homework 8, Nonlinear assignment, David
+#########
+---
+##### Loading Libraries
+```{r, message=FALSE}
+# Loading libraries for the script, hide output
+library(tidyverse)
+library(nls2)
+library(broom)
+```
+
+## Problem 1
+##### Using the diamonds data set, make a data frame that shows the slope of the relationship of price as a function of weight (carat) for each unique color, in decreasing order of slope.
+```{r}
+# y = price
+# x = carat
+# lm model is y ~ x
+dia_list <- diamonds %>%
+  split(.$color) %>%
+  map(~lm(price ~ carat,data=.)) %>%
+  map(coefficients) %>%
+  map_dbl("carat")
+
+dia_list_temp <- dia_list[order(desc(dia_list))]
+colnames <- c("Color","Price/Carat Slope")
+dia_df <- as.data.frame(dia_list_temp)
+names(dia_df)[1] <- "Price/Carat Slope"
+knitr::kable(dia_df)
+
+```
+## Problem 2
+##### The DNase dataset in the datasets package (which automatically loads when you load R) has examples of ELISA band optical density as a function of protein concentration, for 12 different runs. These relationships are clearly nonlinear (please plot density as a function of conc to see for yourself!).
+```{r}
+# x = conc
+# y = density
+ggplot() +
+  geom_point(data=DNase, aes(x = conc, y = density)) +
+  labs(  x = "Protein Concentration", 
+         y = "Density",
+        title = "Density vs Protein Concentration Scatterplot")
+```
+
+##### For instance, to fit the model above to the full data set, we could do as follows for the Square Root Model
+
+```{r}
+# Square Root Model
+# x = conc
+# y = density
+nls_mod <- formula(density ~ beta_1 * sqrt(conc) + beta_0)
+
+#Testing individual SQRT non linear function 
+nested <- DNase %>%
+  nest(data = -Run) %>%
+  mutate(
+    fit = map(data, ~ nls2(nls_mod,data=.,
+                          start = list(beta_1 = 0.5, beta_0 = 0.1))),
+    glanced = map(fit,glance)
+  ) 
+
+nested %>%
+  unnest(glanced)
+
+```
+
+##### Fitting to the monod model
+
+```{r}
+monod_formula <- formula(density ~ (conc * max(density))/(conc + k))
+
+nested <- DNase %>%
+  nest(data = -Run) %>%
+  mutate(
+    fit = map(data, ~ nls2(monod_formula, 
+                    data = ., 
+                    start = list(k = 0.5))),
+    glanced = map(fit,glance)
+    
+  ) 
+
+nested %>%
+  unnest(glanced)
+
+```
+
+## Combine and Plot models
+
+```{r}
+sqrt_formula <- formula(density ~ beta_1 * sqrt(conc) + beta_0)
+monod_formula <- formula(density ~ (conc * max(density))/(conc + k))
+
+combined <- DNase %>%
+  nest(data = -Run) %>%
+  mutate(
+    monod_fit = map(data, ~ nls2(monod_formula, 
+                    data = ., 
+                    start = list(k = 0.5))),
+    monod_glanced = map(monod_fit,glance),
+    sqrt_fit = map(data, ~ nls2(sqrt_formula,data=.,
+                          start = list(beta_1 = 0.5, beta_0 = 0.1))),
+    sqrt_glanced = map(sqrt_fit,glance)
+  ) 
+
+temp <- combined %>%
+  unnest(monod_glanced)
+monod_AIC <- temp$AIC
+temp <- combined %>%
+  unnest(sqrt_glanced)
+sqrt_AIC <- temp$AIC
+
+monod_df <- data.frame(run=1:11, type = "Monod", AIC=monod_AIC)
+sqrt_df <-  data.frame(run=1:11, type = "Sqrt", AIC=sqrt_AIC)
+model_df <- rbind(monod_df,sqrt_df)
+
+# x = Run
+# y = AIC
+ggplot(data=model_df, aes(x = run, y = AIC)) +
+  geom_point(aes(color=type)) +
+  labs(  x = "Run", 
+         y = "AIC",
+        title = "AIC vs Run Scatterplot")
+
+
+
+```
+
+## Conclusion
+The purpose of the assignment was to understand whether the Monod or Sqrt function would provide a better fit for the data. The figure shows that the Sqrt formula has more negative AIC values. AIC values are not judged on absolute values so therefore since the Sqrt is more negative than Monod, it has a better fit. 
